@@ -1,10 +1,10 @@
 import unittest
-from pkg.pkg1 import information_input as ii
-from pkg.pkg1 import information_output as io
-from pkg.pkg1 import information_check as ic
-from pkg.pkg2 import Checking as ch
-from pkg.pkg2 import Course as co
-from pkg.pkg2 import Question as qu
+from ubcpkg.pkg1 import information_input as ii
+from ubcpkg.pkg1 import information_output as io
+from ubcpkg.pkg1 import information_check as ic
+from ubcpkg.pkg2 import Checking as ch
+from ubcpkg.pkg2 import Course as co
+from ubcpkg.pkg2 import Question as qu
 
 def addition(num1, num2):
     return num1 + num2
