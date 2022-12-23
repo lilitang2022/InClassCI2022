@@ -39,6 +39,45 @@ class Test_output(unittest.TestCase):
         self.assertEqual(p3.length,self.teacher_length)
         self.assertEqual(p4.name,self.teacher_name)
         self.assertEqual(p4.ID,self.teacher_ID)
+
+class Test_check(unittest.TestCase):
+    
+    def setUp(self): 
+        print('1')
+        self.right_name = 'lily'
+        self.right1_name = 'Justin'
+        self.right2_name = 'Travis'
+        self.wrong_name = ''
+        self.right_id = "12345"
+        self.right2_id = "54321"
+        self.wrong_id = "36345"
+        self.wrong2_id = ""
+                
+    def tearDown(self):
+        print('2')
+        
+    def test_check_inlist(self): #function
+        right = ic.Info_Check(self.right_name,self.right_id)
+        wrong = ic.Info_Check(self.wrong_name,self.wrong_id)
+        right2 = ic.Info_Check(self.right2_id,self.right_id)
+        wrong2 = ic.Info_Check(self.wrong_name,self.wrong_id)
+        
+        self.assertTrue(right.check_inlist())
+        self.assertFalse(wrong.check_inlist())
+        self.assertTrue(right2.check_inlist())
+        self.assertFalse(wrong2.check_inlist())
+              
+        
+    def test_check_IsNull(self):
+        right = ic.Info_Check(self.right_name,self.right_id)
+        wrong = ic.Info_Check(self.wrong_name,self.right_id)
+        right1 = ic.Info_Check(self.right1_name,self.right_id)
+        right2 = ic.Info_Check(self.right2_name,self.right_id)
+        
+        self.assertFalse(right.check_IsNull())
+        self.assertTrue(wrong.check_IsNull())
+        self.assertFalse(right1.check_IsNull())
+        self.assertFalse(right2.check_IsNull())
             
         
 unittest.main()
