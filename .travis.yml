@@ -4,5 +4,5 @@ python:
   - "3.5"
 # command to run tests
 script:
-  - python Test-pkg1.py
-  - python Test-pkg2.py
+  - python Test-pkg12.py
+
