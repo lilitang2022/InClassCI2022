@@ -47,6 +47,9 @@ This Module contain ```Course(Question,Checking):``` which is inherited from Che
 - append_difficulty(self,question) - for appending database’s difficultyin to its own difficulty array
 - append_courseq(self) - for appending database’s question, answer according to the difficulty into 4 different question set array for user to access it after knowing the user difficulty that he/she want to be quiz on.
 
+### Package Link (ubcpkg)
+https://pypi.org/project/ubcpkg/0.1/
+
 
 
 
