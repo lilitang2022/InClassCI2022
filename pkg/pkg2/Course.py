@@ -23,34 +23,46 @@ class Course(Q.Question,C.Checking):
             
         
     def append_text(self,question):
-        self.question_text = question["question"]
-        return question["question"]
+        try:
+            self.question_text = question["question"]
+            return question["question"]
+        except KeyError:
+            print("ERROR Message: There is an error of the dataset for accessing question.")
             
     def append_answer(self,question):
-        self.question_answer = question["correct_answer"]
-        return question["correct_answer"]
+        try:
+            self.question_answer = question["correct_answer"]
+            return question["correct_answer"]
+        except KeyError:
+            print("ERROR Message: There is an error of the dataset for accessing correct_answer.")
             
     def append_difficulty(self,question):
-        self.question_difficulty = question["difficulty"]
-        return question["difficulty"]
+        try:
+            self.question_difficulty = question["difficulty"]
+            return question["difficulty"]
+        except KeyError:
+            print("ERROR Message: There is an error of the dataset for accessing difficulty.")
     
             
     def append_courseq(self):
-        for question in self.question_data:
-            self.append_text(question)
-            self.append_answer(question)
-            self.append_difficulty(question)
-            new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
-           
-            self.course_q.append(new_question)
-            
-            if self.question_difficulty == "easy":
+        try:
+            for question in self.question_data:
+                self.append_text(question)
+                self.append_answer(question)
+                self.append_difficulty(question)
                 new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
-                self.ez_course_q.append(new_question)
-            elif self.question_difficulty == "normal":
-                new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
-                self.normal_course_q.append(new_question)
-            elif self.question_difficulty == "hard":
-                new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
-                self.hard_course_q.append(new_question)
+
+                self.course_q.append(new_question)
+
+                if self.question_difficulty == "easy":
+                    new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
+                    self.ez_course_q.append(new_question)
+                elif self.question_difficulty == "normal":
+                    new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
+                    self.normal_course_q.append(new_question)
+                elif self.question_difficulty == "hard":
+                    new_question = Q.Question(self.question_text, self.question_answer,self.question_difficulty)
+                    self.hard_course_q.append(new_question)
+        except AttributeError as ae:
+            print("ERROR Message:", ae)
                 

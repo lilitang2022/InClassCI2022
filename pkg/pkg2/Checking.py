@@ -1,3 +1,7 @@
+class usr_notfound(Exception):
+    def __init__(self):
+        print("USER NOT FOUND (Teacher or Student)")
+        
 class Checking:
 
     def __init__(self, questions, usr):
@@ -12,15 +16,22 @@ class Checking:
         self.normal_course_q = []
         
     def next_question(self):
-        current_question = self.quesBank[self.quesNum]
+        try:
+            current_question = self.quesBank[self.quesNum]
 
-        self.quesNum += 1
-        if self.usr == 'teacher':
-            print("Question " + str(self.quesNum)+ ". " + str(current_question.text))
-            self.check_answer(current_question.answer, current_question.answer)
-        else:
-            usr_input = input("Question " + str(self.quesNum)+ ". " + str(current_question.text))
-            self.check_answer(usr_input.lower(), current_question.answer)
+            self.quesNum += 1
+
+
+            if self.usr == 'teacher':
+                print("Question " + str(self.quesNum)+ ". " + str(current_question.text))
+                self.check_answer(current_question.answer, current_question.answer)
+            elif self.usr == 'student':
+                usr_input = input("Question " + str(self.quesNum)+ ". " + str(current_question.text))
+                self.check_answer(usr_input.lower(), current_question.answer)
+            else:
+                raise usr_notfound
+        except usr_notfound:
+            pass
     
     def isEmpty(self):
         return self.quesNum < len(self.quesBank)
@@ -44,9 +55,12 @@ class Checking:
             return(False)
             
     def check_score(self):
-        print("**************************************** ")
-        print("**************************************** \n")
-        print("Final score: " + str(self.score) + " out of " + str(self.quesNum) + ". \n")
-        print("**************************************** ")
-        print("**************************************** \n")
+        try:
+            print("**************************************** ")
+            print("**************************************** \n")
+            print("Final score: " + str(self.score) + " out of " + str(self.quesNum) + ". \n")
+            print("**************************************** ")
+            print("**************************************** \n")
+        except ValueError:
+            print("ERROR Message: There is an Value error on the score")
         
