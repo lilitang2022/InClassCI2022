@@ -39,7 +39,7 @@ class Test_output(unittest.TestCase):
         self.assertEqual(p3.length,self.teacher_length)
         self.assertEqual(p4.name,self.teacher_name)
         self.assertEqual(p4.ID,self.teacher_ID)
-
+        
 class Test_check(unittest.TestCase):
     
     def setUp(self): 
@@ -77,7 +77,6 @@ class Test_check(unittest.TestCase):
         self.assertFalse(right.check_IsNull())
         self.assertTrue(wrong.check_IsNull())
         self.assertFalse(right1.check_IsNull())
-        self.assertFalse(right2.check_IsNull())
-            
+        self.assertFalse(right2.check_IsNull())          
         
 unittest.main()
