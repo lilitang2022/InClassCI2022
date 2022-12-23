@@ -1,5 +1,7 @@
 # Function details  and how they work
 
+[![Build Status](https://app.travis-ci.com/lilitang2022/InClassCI2022.svg?branch=main)](https://app.travis-ci.com/lilitang2022/InClassCI2022)
+
 ## Motivation
 We want to create a quiz apps for the authoized  student to test their understanding on the material before taking the actual exam. This application will ask user for the subject(Data533, Data541, Data530) and difficulty (easy, normal, hard, all(default)) that they want to be quized on. And validated their answer by giving feedback to them after every question. Finally the quiz apps will calculate a total marks after finishing all the question in order for them to keep track on their understanding on a specific topic. The application also allows teacher to access the quiz to see what question is the student being ask and for error checking purpose.
 ## Package1
