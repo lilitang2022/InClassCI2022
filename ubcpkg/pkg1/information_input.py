@@ -7,8 +7,11 @@ def name():
         return n
     
 def ID():   
-        I=input("What's your ID? ")
+     try:
+        I=int(input("What's your ID? "))
         return I
+     except ValueError:
+        print("Please input a number")
 
 # a student
 def major():   
@@ -25,5 +28,4 @@ def research():
 def length():
         n=input("How many years since be a tearcher?(optional)")
         return n
-
 
