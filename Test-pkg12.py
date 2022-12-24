@@ -118,9 +118,9 @@ class Test_check(unittest.TestCase):
         self.right1_name = 'Justin'
         self.right2_name = 'Travis'
         self.wrong_name = ''
-        self.right_id = "12345"
-        self.right2_id = "54321"
-        self.wrong_id = "36345"
+        self.right_id = 12345
+        self.right2_id = 54321
+        self.wrong_id = 36345
         self.wrong2_id = ""
                 
     def tearDown(self):
