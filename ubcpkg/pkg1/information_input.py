@@ -7,12 +7,26 @@ def name():
         return n
     
 def ID():   
-     try:
+    try:
         I=int(input("What's your ID? "))
+    
+        class IDLenghtError(Exception):
+            pass
+    
+        try:
+            if len(str(I)) != 5:
+                raise IDLenghtError
+            
+        except IDLenghtError:
+            print("ID Lenght should be 5") 
+        
         return I
-     except ValueError:
+
+    except ValueError:
         print("Please input a number")
 
+   
+        
 # a student
 def major():   
         n=input("What's your major?(optional)")
